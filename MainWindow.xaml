@@ -1,0 +1,196 @@
+﻿<Window x:Class="GetItFast.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="" Height="350" Width="525"  
+        WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True">
+
+
+    <Grid Margin="0">
+        
+        <Grid x:Name="Login" Visibility="Collapsed">
+            <Grid.Background>
+                <ImageBrush ImageSource="backgroubd.png"/>
+            </Grid.Background>
+            <Label Content="GET IT FAST" HorizontalAlignment="Center" VerticalAlignment="Top" Width="475" FontFamily="BreezedCaps BoldOblique" FontSize="48" Margin="32,0,10,0" Foreground="White"/>
+            <Label Content="Username" HorizontalAlignment="Left" Margin="165,109,0,0" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="230,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Password" HorizontalAlignment="Left" Margin="165,137,0,0" VerticalAlignment="Top"/>
+            <Button Content="Login" HorizontalAlignment="Left" Margin="230,169,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+            <PasswordBox HorizontalAlignment="Left" Margin="230,141,0,0" VerticalAlignment="Top" Width="120" Height="22"/>
+        </Grid>
+        <Grid x:Name="Ldd" Visibility="Visible">
+            <Grid.Background>
+                <ImageBrush ImageSource="backgroubd.png"/>
+            </Grid.Background>
+            <Label Content="GET IT FAST" HorizontalAlignment="Center" VerticalAlignment="Top" Width="475" FontFamily="BreezedCaps BoldOblique" FontSize="48" Margin="32,0,10,0" Foreground="White"/>
+            <TabControl HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Width="505" Margin="10,60,10,10">
+                <TabItem Header="Source">
+                    <Grid >
+                        <GroupBox Header="Mode"  VerticalAlignment="Stretch" Margin="4">
+                            <StackPanel>
+                                <RadioButton Content="Watch Folder" x:Name="selectFolder" GroupName="WhatToWatchSource" IsChecked="True" HorizontalAlignment="Right" Height="20" VerticalAlignment="Top" Margin="0,2,386,2"/>
+                                <StackPanel x:Name="FolderToWatch" Margin="2">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Folder Path" Width="86" Margin="2"></TextBlock>
+                                        <TextBox x:Name="strFolderPath" HorizontalAlignment="Stretch" Width="289" Text="C:\AsperaTest\FolderToWatch" />
+                                        <Button Margin="2" Width="90" Height="20" Content="Browse Folder" Click="Button_Click_3"/>
+                                    </StackPanel>
+                                    <CheckBox  Margin="89,2,10,2" Content="Include Subfolders?"></CheckBox>
+                                </StackPanel>
+                                <RadioButton Content="Watch File" x:Name="selectFile" GroupName="WhatToWatchSource" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Margin="2" />
+                                <StackPanel x:Name="FileToWatch" Margin="2">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="File Path" Width="86" Margin="2"></TextBlock>
+                                        <TextBox HorizontalAlignment="Stretch" x:Name="strFilePath" Width="290" />
+                                        <Button Margin="2" Width="90" Height="20" Content="Browse File" Click="Button_Click_2"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                                    <TextBlock Text="File Matching" Width="86" Margin="2"></TextBlock>
+                                    <TextBox HorizontalAlignment="Stretch" Height="25" Margin="2" Width="380" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Archive Folder " Width="86" Margin="2"></TextBlock>
+                                    <TextBox x:Name="strArchiveFolderPath" Margin="2,0,0,0" HorizontalAlignment="Stretch" Width="289" Text="C:\AsperaTest\Archive" />
+                                    <Button Margin="2" Width="90" Height="20" Content="Browse Folder" Click="Button_Click_4" />
+                                </StackPanel>
+
+                            </StackPanel>
+                        </GroupBox>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Destination">
+                    <Grid >
+                        <GroupBox Header="Mode"  VerticalAlignment="Stretch" Margin="4">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Destination" Width="86" Margin="4"></TextBlock>
+                                    <TextBox HorizontalAlignment="Stretch" Width="380" Text="hack1.aspera.us" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Username" Width="86" Margin="4"></TextBlock>
+                                    <TextBox HorizontalAlignment="Stretch" Width="380" Text="xfer" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                    <TextBlock Text="Password " Width="86" Margin="4"></TextBlock>
+                                    <PasswordBox HorizontalAlignment="Stretch" Width="380" Password="aspera" />
+                                </StackPanel>
+                                <RadioButton Content="Write to Folder" x:Name="selectFolder1" GroupName="WhatToWatch" IsChecked="True" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Margin="2"/>
+                                <StackPanel x:Name="FolderToDump" Margin="2">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Folder Path" Width="86" Margin="2"></TextBlock>
+                                        <TextBox HorizontalAlignment="Stretch" Width="380" />
+                                    </StackPanel>
+                                </StackPanel>
+                                <RadioButton Content="Write to File" x:Name="selectFile1" GroupName="WhatToWatch" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Margin="2" />
+                                <StackPanel x:Name="FileToDump" Margin="2">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="File Path" Width="86" Margin="2"></TextBlock>
+                                        <TextBox HorizontalAlignment="Stretch" Width="380" />
+
+                                    </StackPanel>
+                                </StackPanel>
+
+                            </StackPanel>
+                        </GroupBox>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Monitor" HorizontalAlignment="Left" Width="59">
+                    <Grid>
+                        <GroupBox Header="Processes" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2">
+                            <StackPanel>
+                                <Button Content="Start Monitoring" x:Name="btnMonitor" Margin="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Click="Button_Click" />
+                                <TextBlock Text="Log" VerticalAlignment="Stretch" Height="25" Margin="2"></TextBlock>
+                                <TextBlock VerticalAlignment="Stretch" Height="157" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="2">
+                                    
+                                </TextBlock>
+                            </StackPanel>
+                        </GroupBox>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Statistics">
+                    <Grid>
+                        <GroupBox Header="Counters" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2">
+                            <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="9*"/>
+                                    <ColumnDefinition Width="14*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Files" HorizontalAlignment="Right" Margin="62,0,0,0" VerticalAlignment="Top"/>
+                                <Label Content="File Size" HorizontalAlignment="Right" Margin="62,0,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+                                <Label Content="Target Rate Ceiling" HorizontalAlignment="Right" Margin="62,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+                                <Label Content="Policy" HorizontalAlignment="Right" Margin="62,0,0,0" Grid.Row="3" VerticalAlignment="Top"/>
+                                <Label Content="Time Saved" HorizontalAlignment="Right" Margin="62,0,0,0" Grid.Row="4" VerticalAlignment="Top"/>
+                                <Label Content="Recommendations" HorizontalAlignment="Right" Margin="62,0,0,0" Grid.Row="5" VerticalAlignment="Top"/>
+                                <Label Grid.Column="1" Content="159" HorizontalAlignment="Left" Margin="12,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                <Label FontWeight="Bold" Grid.Column="1" Content="77.8 GB" HorizontalAlignment="Left" Margin="12,0,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+                                <Label FontWeight="Bold" Grid.Column="1" Content="104857600" HorizontalAlignment="Left" Margin="12,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+                                <Label FontWeight="Bold" Grid.Column="1" Content="Fair" HorizontalAlignment="Left" Margin="12,0,0,0" Grid.Row="3" VerticalAlignment="Top"/>
+                                <Label FontWeight="Bold" Grid.Column="1" Content="1800 mins" HorizontalAlignment="Left" Margin="12,0,0,0" Grid.Row="4" VerticalAlignment="Top"/>
+                                <Label FontWeight="Bold" Grid.Column="1" Grid.RowSpan="2"  HorizontalAlignment="Left" Margin="12,0,0,0" Grid.Row="5" VerticalAlignment="Top">
+                                    <Label.Content>
+                                        <AccessText TextWrapping="Wrap" Text="Switch to higher plan to avoid paying for extra bandwidth"/>
+                                    </Label.Content>
+                                </Label>
+
+                            </Grid>
+                        </GroupBox>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="About">
+                    <Grid>
+                        <GroupBox Header="Get It Fast" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2">
+                            <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="9*"/>
+                                    <ColumnDefinition Width="14*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Plan" HorizontalAlignment="Right" Margin="62,0,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Allowed File Size" HorizontalAlignment="Right" Margin="62,0,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+                                <Label Content="Target Rate Ceiling" HorizontalAlignment="Right" Margin="62,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+                                <Label Content="Policy" HorizontalAlignment="Right" Margin="62,0,0,0" Grid.Row="3" VerticalAlignment="Top"/>
+                                <Label Content="Contact" HorizontalAlignment="Right" Margin="62,0,0,0" Grid.Row="4" VerticalAlignment="Top"/>
+                                <Label Content="Email" HorizontalAlignment="Right" Margin="62,0,0,0" Grid.Row="5" VerticalAlignment="Top"/>
+                                <Label Content="Next Billing" HorizontalAlignment="Right" Margin="62,0,0,0" Grid.Row="6" VerticalAlignment="Top"/>
+                                <Label Grid.Column="1" Content="SMB100" HorizontalAlignment="Left" Margin="12,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                <Label FontWeight="Bold" Grid.Column="1" Content="100 GB" HorizontalAlignment="Left" Margin="12,0,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+                                <Label FontWeight="Bold" Grid.Column="1" Content="104857600" HorizontalAlignment="Left" Margin="12,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+                                <Label FontWeight="Bold" Grid.Column="1" Content="Fair" HorizontalAlignment="Left" Margin="12,0,0,0" Grid.Row="3" VerticalAlignment="Top"/>
+                                <Label FontWeight="Bold" Grid.Column="1" Content="1 800 GET FAST" HorizontalAlignment="Left" Margin="12,0,0,0" Grid.Row="4" VerticalAlignment="Top"/>
+                                <Label FontWeight="Bold" Grid.Column="1" Content="12/12/2013" HorizontalAlignment="Left" Margin="12,0,0,0" Grid.Row="6" VerticalAlignment="Top"/>
+                                <Label FontWeight="Bold" Grid.Column="1" HorizontalAlignment="Left" Margin="12,0,0,0" Grid.Row="5" VerticalAlignment="Top">
+                                    <Label.Content>
+                                        <AccessText TextWrapping="Wrap" Text="support@getitfast.co"/>
+                                    </Label.Content>
+                                </Label>
+
+                            </Grid>
+                        </GroupBox>
+                    </Grid>
+                </TabItem>
+
+            </TabControl>
+        </Grid>
+        <!--<Label Content="_" Margin="0,-2,18,0" HorizontalAlignment="Right" VerticalAlignment="Top" MouseUp="Label_MouseUp_1" />-->
+        <Label Content="x" HorizontalAlignment="Right" VerticalAlignment="Top" MouseUp="Label_MouseUp"/>
+        <Button Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="440,59,0,0" Click="Button_Click_5"/>
+    </Grid>
+</Window>

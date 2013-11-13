@@ -1,0 +1,12 @@
+This piece of code was developed during Launch Hackathon on Nov 8-10, 2013. Won prize for the same.
+
+Required Software 
+-----------------
+ASPERA Re-distributable
+http://download.asperasoft.com/download/sw/sdk/redist/aspera-sdk-redist-3.1.1.
+You will need developer account to access this download. Register and request for license.
+License file needs to be copied to the folder that has ascp.exe 
+To test license, you need to type 'ascp.exe -A' on command prompt 
+
+PS: Some of the fields are pre-populated .. need to change according to your environment
+
